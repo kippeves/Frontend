@@ -1,0 +1,25 @@
+div.cover {
+    aspect-ratio: 1000/1500;
+    height: auto;
+    width: auto;
+
+}
+
+button {
+    --animation: border-color 0.75s linear, background-color 0.75s linear, color 0.75s linear;
+    -webkit-transition: var(--animation);
+    -moz-transition: var(--animation);
+    -o-transition: var(--animation);
+    transition: var(--animation);
+}
+
+.buttons {
+    position: absolute;
+    top: 30%;
+    right: 2rem;
+}
+
+.label {
+    display: inline-block;
+    min-width: 6rem;
+}

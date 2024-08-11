@@ -1,9 +1,0 @@
-<section class="container-lg">
-  <div class="pt-5 pb-3 my-3 text-center bg-body-tertiary col-12 col-lg-10 mx-auto rounded shadow-sm">
-    <p class="display-4">Böcker</p>
-  </div>
-  <div class="h-100 mx-auto d-flex col-12 col-lg-10 flex-column gap-3 mb-3">
-    <app-book-item [ngClass]="['position-relative rounded shadow-sm']" (onRemoveBook)="remove($event)"
-      *ngFor="let book of bookList;last as isLast" [entry]="book" [isLast]="isLast"></app-book-item>
-  </div>
-</section>

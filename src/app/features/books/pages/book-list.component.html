@@ -1,0 +1,9 @@
+<section class="h-100">
+  <p *ngIf="this.Books" class="p-5 my-3 text-center mx-auto display-4">Böcker</p>
+  <div class="mb-3 d-flex flex-column gap-3 col-auto col-lg-10 col-xl-9 mx-auto">
+    <div class="snap d-flex flex-column gap-3 ">
+      <book-list-item (onRemoveBook)="remove($event)" *ngFor="let Book of Books;last as isLast" [item]="Book"
+        [isLast]="isLast"></book-list-item>
+    </div>
+  </div>
+</section>

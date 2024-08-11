@@ -2,7 +2,6 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 
-bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
 
 function updateTheme() {
     const colorMode = window.matchMedia("(prefers-color-scheme: dark)").matches ?
@@ -23,3 +22,4 @@ window.addEventListener("scroll", _ => {
 updateTheme()
 // Update theme when the preferred scheme changes
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme)
+bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));

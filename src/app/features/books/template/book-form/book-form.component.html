@@ -1,0 +1,38 @@
+@if (this.Form != undefined) {
+<div class="d-flex justify-content-center h-100 align-items-sm-center">
+    <form class="d-flex flex-column gap-3 needs-validation bg-body-tertiary shadow-sm p-4 justify-content-evenly col-12
+            col-md-auto rounded" ngNativeValidate [formGroup]="Form" (ngSubmit)="Submit()">
+        <div>
+            @if(this.formTitle){
+            <h1 class="text-center my-3">{{this.formTitle}}</h1>
+            }
+            <div class="d-flex flex-column gap-3">
+                <div>
+                    <form-input [Label]="'Titel'" [Name]="'title'"></form-input>
+                </div>
+                <div class="d-flex flex-column flex-md-row gap-3">
+                    <form-input [Label]="'Författare, Förnamn'" [Name]="'firstName'"></form-input>
+                    <form-input [Label]="'Författare, Efternamn'" [Name]="'surName'"></form-input>
+                </div>
+                <div class="d-flex flex-column gap-3">
+                    <form-input [Type]="'select'" [Name]="'bookType'" [Label]="'Boktyp'"
+                        [Items]="this.Types"></form-input>
+                    <form-input [Type]="'number'" [Name]="'noOfPages'" [Label]="'Antal Sidor'"></form-input>
+                    <form-input [Type]="'date'" [Name]="'publicationDate'" [Label]="'Utgivningsdatum'"></form-input>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-secondary" (click)="Cancel()">
+                <fa-icon [title]="" size="lg" [icon]="faArrowLeft"></fa-icon>
+            </button>
+            <div class="d-flex gap-1">
+                <button type="button" (click)="setPreviousValues()" class="btn btn-danger">Ångra</button>
+                <button type="submit" [disabled]="(Form.invalid || !this.hasChanges())" class="btn btn-primary">
+                    Uppdatera
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+}

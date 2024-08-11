@@ -1,0 +1,28 @@
+<section id="book{{this.item.id}}"
+  class="col d-flex flex-column gx-0 rounded p-4 bg-secondary bg-opacity-10 shadow-sm gap-3 rounded">
+  <div class="col d-flex flex-column flex-md-row gap-3">
+    <div class="col-8 col-md-3 mx-auto rounded">
+      <div
+        class="img-fluid shadow-sm rounded bg-body-secondary bg-gradient cover d-flex justify-content-center align-items-center">
+        Omslag
+      </div>
+    </div>
+    <div class="col d-flex flex-wrap shadow-sm rounded bg-body">
+      <div class="col align-self-center align-content-center d-flex flex-wrap my-sm-0 p-3 p-md-0">
+        <div *ngFor="let column of columns" class="col d-flex flex-column px-3 p-md-3 mx-3">
+          <p *ngFor="let item of column" class="d-flex flex-column my-2">
+            <span class="label">{{item.label}}:</span>{{item.value}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-auto d-flex justify-content-evenly flex-row gap-3">
+    <button [routerLink]="['/books/edit', item.id]"
+      class=" btn btn-secondary rounded shadow-sm flex-grow-1 flex-md-grow-0">
+      <fa-icon [title]="" size="lg" [icon]="faPencil"></fa-icon> Redigera</button>
+    <button type="button" (click)="remove()"
+      class="btn btn-danger shadow-sm rounded flex-grow-1 flex-md-grow-0"><fa-icon [icon]="faTrash" size="lg"></fa-icon>
+      Ta Bort</button>
+  </div>
+</section>

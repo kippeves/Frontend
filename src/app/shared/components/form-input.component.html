@@ -1,0 +1,17 @@
+<div class="flex-grow-1" [formGroup]="form">
+    <label for="{{Name}}" class="form-label">{{Label}}</label>
+    @if(Type == "select"){
+    <select id="{{Name}}" class="form-select" formControlName="{{Name}}">
+        <option *ngFor="let item of this.Items" [value]="item">
+            {{ item}}
+        </option>
+    </select>
+    } @else{
+    <input type="{{Type}}" class="form-control" id="{{Name}}" formControlName="{{Name}}" />
+    }
+    <div *ngIf="(control.dirty || control.touched) && control.errors" class="alert alert-danger">
+        <div *ngIf="(control.hasError('required') || control.hasError('min'))">
+            Vänligen fyll i ett värde.
+        </div>
+    </div>
+</div>
