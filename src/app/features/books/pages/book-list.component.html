@@ -1,9 +1,11 @@
-<section class="h-100">
-  <p *ngIf="this.Books" class="p-5 my-3 text-center mx-auto display-4">Böcker</p>
+<section>
+  <p *ngIf="this.Books" class="p-5  text-center mx-auto display-4">Böcker</p>
+  <div class="d-flex flex-row justify-content-center pb-5"> <button [routerLink]="['create']"
+      class="btn btn-primary">Lägg Till
+      Bok</button></div>
   <div class="mb-3 d-flex flex-column gap-3 col-auto col-lg-10 col-xl-9 mx-auto">
-    <div class="snap d-flex flex-column gap-3 ">
-      <book-list-item (onRemoveBook)="remove($event)" *ngFor="let Book of Books;last as isLast" [item]="Book"
-        [isLast]="isLast"></book-list-item>
+    <div class="snap d-flex flex-column gap-3 mb-5">
+      <book-list-item (onRemoveBook)="remove($event)" *ngFor="let Book of Books;" [item]="Book"></book-list-item>
     </div>
   </div>
 </section>

@@ -9,6 +9,4 @@ import { NavbarComponent } from './navbar.component';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
-
-}
+export class LayoutComponent { }

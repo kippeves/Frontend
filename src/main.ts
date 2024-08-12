@@ -1,22 +1,22 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { LightService } from './app/shared/services/light.service';
+import { inject } from '@angular/core';
+
 
 
 function updateTheme() {
     const colorMode = window.matchMedia("(prefers-color-scheme: dark)").matches ?
         "dark" :
         "light";
-    document.querySelector("html")?.setAttribute("data-bs-theme", colorMode);
-}
-
-window.addEventListener("scroll", _ => {
-    if (window.scrollY > 10) {
-        document.getElementById("topNav")?.classList?.add("shadow-sm")
+    const savedMode = localStorage.getItem("lightMode");
+    if (savedMode != null) {
+        document.querySelector("html")?.setAttribute("data-bs-theme", savedMode);
     } else {
-        document.getElementById("topNav")?.classList?.remove("shadow-sm")
+        document.querySelector("html")?.setAttribute("data-bs-theme", colorMode);
     }
-})
+}
 
 // Set theme on load
 updateTheme()

@@ -1,0 +1,17 @@
+<div class="d-flex flex-column align-items-center gap-3 py-5">
+    @for(quote of quotes; track quote; let i = $index; let even = $even;){
+    @let color = "#"+this.colors[i % 5];
+    <div [ngStyle]="{'background-color': color}"
+        [ngClass]="['rounded','d-flex','flex-column-reverse','flex-sm-row','justify-content-center','shadow-sm', 'p-4', 'quoteItem']">
+        <div class="d-flex align-items-center py-4 px-3 pe-sm-5 ps-sm-4  justify-content-center">
+            <fa-icon class="text-light " transform="grow-50" [icon]="faQuoteLeft"></fa-icon>
+        </div>
+        <figure class="d-flex bg-light flex-column justify-content-center rounded p-4 mb-0">
+            <blockquote class="text-justify blockquote text-dark pb-3">
+                {{quote.sentence}}
+            </blockquote>
+            <figcaption class="blockquote-footer mb-0">{{quote.person}}</figcaption>
+        </figure>
+    </div>
+    }
+</div>

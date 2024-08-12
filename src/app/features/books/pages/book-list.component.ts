@@ -3,15 +3,15 @@ import { BookItemCompoonent } from '../components/book-item.component';
 import { Book } from '../interfaces/book';
 import { CommonModule } from '@angular/common';
 import { BookService } from '../book.service';
-import { BookEditFormComponent } from './edit-form.component';
+import { BookEditFormComponent } from './book-edit-form.component';
 import { ChangeDetectorRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../../core/auth/services/auth.service';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, BookItemCompoonent, BookEditFormComponent],
+  imports: [CommonModule, BookItemCompoonent, BookEditFormComponent, RouterModule],
   templateUrl: './book-list.component.html',
 })
 

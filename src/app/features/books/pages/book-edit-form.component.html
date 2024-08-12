@@ -1,2 +1,2 @@
 <book-form *ngIf="this.previousValues" [previousValues]="this.previousValues" [formTitle]="'Ändra Bok'"
-    (onSubmit)="onSubmit($event)" (onCancel)="goBack()"></book-form>
+    (onSubmit)="onSubmit($event)" (onCancel)="goBack()" [SubmitButtonTitle]="'Uppdatera'"></book-form>

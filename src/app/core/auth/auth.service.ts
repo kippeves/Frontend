@@ -1,5 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { ApiService } from '../../../shared/services/api.service';
+import { ApiService } from '../../shared/services/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   setLoggedOut() {
-    localStorage.removeItem("localUser");
+    localStorage.clear();
     this.loggedIn.set(false);
   }
 

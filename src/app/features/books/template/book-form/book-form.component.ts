@@ -26,6 +26,7 @@ export class BookFormComponent {
 
 
     @Input() formTitle?: string
+    @Input() SubmitButtonTitle!: string
     Types = ["Bunden", "Pocket"]
     Form?: FormGroup
     @Input() previousValues!: {}

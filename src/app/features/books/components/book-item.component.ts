@@ -25,7 +25,6 @@ export class BookItemCompoonent {
   @Output() onSelect = new EventEmitter<number>();
 
   @Input() item!: Book;
-  @Input() isLast!: boolean;
 
   columns?: ColumnData[][]
 
@@ -62,7 +61,6 @@ export class BookItemCompoonent {
       }
     ]
     ]
-
   }
   faBook = faBook
   faPortrait = faPortrait
