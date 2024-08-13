@@ -37,7 +37,7 @@ export class BookCreateFormComponent {
       surName: ['', { nonNullable: true, validators: [Validators.required] }],
       bookType: ['', { nonNullable: true, validators: [Validators.required] }],
       noOfPages: ['', { nonNullable: true, validators: [Validators.required, Validators.min(1)] }],
-      publicationDate: [new Date(), { nonNullable: true }]
+      publicationDate: [new Date().toLocaleDateString("sv-SE"), { nonNullable: true, validators: [Validators.required] }]
     }
   }
 

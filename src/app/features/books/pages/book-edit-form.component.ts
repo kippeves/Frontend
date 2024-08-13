@@ -62,7 +62,7 @@ export class BookEditFormComponent {
               surName: [res.surName, { nonNullable: true, validators: [Validators.required] }],
               bookType: [res.bookType, { nonNullable: true, validators: [Validators.required] }],
               noOfPages: [res.noOfPages, { nonNullable: true, validators: [Validators.required, Validators.min(1)] }],
-              publicationDate: [date, { nonNullable: true }]
+              publicationDate: [date, { nonNullable: true, validators: [Validators.required] },]
             }
           }
         })
