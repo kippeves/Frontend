@@ -26,6 +26,7 @@ export class BookListComponent {
     this.confirmOnChange(newState.id)
   }
 
+  //Gör att "Redigera Bok"-knappen blinkar grönt för att bekräfta att ändring gick igen.
   confirmOnChange(id: number) {
     const elem = document.getElementById("book" + id)?.getElementsByTagName("button")[0];
     elem?.classList.replace('btn-secondary', 'btn-success')
@@ -39,17 +40,23 @@ export class BookListComponent {
     elem?.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' })
   }
 
+  // Tar bort boken lokalt. Tar inte emot något svar ifrån API:et utan är
+  // mer ett bekräftande att det har gått igenom. 
   remove(id: number) {
     if (window.confirm("Är du säker på att du vill ta bort boken?")) {
-      this.bookService.removeBook(id).subscribe(_ =>
-        this.Books = this.Books.filter(b => b.id != id)
-      )
-      const closestId = this.Books.find(o => o.id > id);
-      if (closestId) {
-        this.scrollToItem(closestId.id)
+      this.bookService.removeBook(id).subscribe(_ => {
+        this.Books = this.Books.filter(b => b.id != id);
+        const closestAbove = this.Books.filter(o => o.id > id)[0]?.id;
+        const closestBelow = this.Books.filter(o => o.id < id).pop()?.id;
+        const scrollTo = closestAbove ?? closestBelow;
+        scrollTo && this.scrollToItem(scrollTo)
       }
+      )
     }
   }
+
+  // Sparar data lokalt mellan varje hämtning för att inte undvika att
+  // användaren ska se svart skärm om den laddar om sidan. 
 
   constructor(private ref: ChangeDetectorRef, private router: Router) {
     if (this.authService.getLoggedInSignal()) {

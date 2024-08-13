@@ -6,9 +6,10 @@ import { ApiService } from '../../shared/services/api.service';
 })
 
 export class AuthService {
-  userExists = localStorage.getItem("localUser") != null
+
+  private userExists = localStorage.getItem("localUser") != null
   private loggedIn = signal(this.userExists);
-  api = inject(ApiService)
+  private api = inject(ApiService)
 
   login(user: { username: string, password: string }) {
     return this.api.post<{ success: boolean, token: string, message: string }>({ url: 'login/authorize/', data: user });

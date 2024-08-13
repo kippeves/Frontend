@@ -36,7 +36,7 @@ export class BookItemCompoonent {
     this.onRemoveBook.emit(this.item.id)
   }
 
-  Date?: Date;
+  
   ngOnInit() {
     this.columns = [[{
       label: "Titel",

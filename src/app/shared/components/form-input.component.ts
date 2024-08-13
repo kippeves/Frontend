@@ -8,6 +8,14 @@ import { FormGroup, FormGroupDirective, ReactiveFormsModule } from '@angular/for
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form-input.component.html',
 })
+
+/*
+  Skapar ett FormInput-fält. Har definitivt inte
+  täckt alla valideringsfel, men misstänkte att det skulle
+  finnas krav på att samtliga fält skulle vara ifyllda, så
+  jag la till möjlighet att se fel för detta.
+*/
+
 export class FormInputComponent {
   @Input() Name!: string;
   @Input() Label?: string;

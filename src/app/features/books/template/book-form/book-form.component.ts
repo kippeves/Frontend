@@ -1,12 +1,11 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, HostListener, inject, Input, Output } from "@angular/core";
+import { Component, EventEmitter, HostListener, Input, Output } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { FormInputComponent } from "../../../../shared/components/form-input.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Book } from "../../interfaces/book";
 import { Observable } from "rxjs";
-import { BookService } from "../../book.service";
 import { Router, RouterLink, RouterModule } from "@angular/router";
 
 @Component({
@@ -15,6 +14,13 @@ import { Router, RouterLink, RouterModule } from "@angular/router";
     imports: [CommonModule, ReactiveFormsModule, FormInputComponent, FontAwesomeModule, RouterLink, RouterModule],
     templateUrl: './book-form.component.html',
 })
+
+/*
+    Används som en abstraktion för Skapa och Redigera-formuläret,
+    för att undika att behova definiera template för båda böckerna.
+    Det är inte så flexibelt som det skulle kunna vara, men så är det
+    också ämnat för den här feature:n;
+*/
 
 export class BookFormComponent {
     constructor(private formBuilder: FormBuilder, private router: Router) { }

@@ -39,6 +39,14 @@ export class BookEditFormComponent {
   }
 
   ngOnInit() {
+    /*  
+      Idéen är att fånga upp om en användare 
+      skriver in en ID som inte existerar och
+      redirecta tillbaka. Det går säkert att
+      hantera i Route eller med en Guard men
+      jag kände att det här räckte för vad
+      som efterfrågades.
+    */
     if (this.bookId != 0) {
       this.bookService.getBookById(this.bookId)
         .pipe(catchError(error => {
